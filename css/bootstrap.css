@@ -368,7 +368,15 @@ h1, h2, h3, h4, h5, h6,
   font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
   line-height: 1.2;
-  color: #5a5a5a;
+  /*color: #5a5a5a;*/
+}
+
+h2 {
+  color: #86ac41
+}
+
+h3 {
+  color: #324851
 }
 
 h1, .h1 {
@@ -10577,4 +10585,19 @@ li a:hover {
 
 li a {
   padding: 20px 16px;
+}
+
+footer {
+  background-color: #86ac41;
+  color: white;
+  width: 1350px;
+  height: 240px;
+  padding: 0px;
+}
+
+.col-lg-4 {
+  background: #86ac41;
+  padding-left: 30px;
+  padding-bottom: 0px;
+  height: 240px;
 }

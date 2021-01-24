@@ -10601,3 +10601,9 @@ footer {
   padding-bottom: 0px;
   height: 240px;
 }
+
+#mapa {
+  margin-left: 85px;
+	height: 500px;
+	width: 70%;
+}

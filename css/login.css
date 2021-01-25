@@ -1,0 +1,26 @@
+
+.aligncenter {
+    text-align: center;
+}
+
+.login{
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px, 55px;
+}
+
+.container{
+    padding-bottom: 7rem;
+}
+
+.login h3{
+    color: #86ac41;
+}
+
+input{
+    display: inline;
+}
+
+.buttons{
+    padding: 25px;
+}

@@ -10595,7 +10595,7 @@ footer {
   padding: 0px;
 }
 
-.col-lg-4 {
+footer .row .col-lg-4 {
   background: #86ac41;
   padding-left: 30px;
   padding-bottom: 0px;

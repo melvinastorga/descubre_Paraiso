@@ -67,7 +67,7 @@
                 <p>Nombre:</p>
             </div>
             <div class="col-lg-5">
-                <input type="text" name="name">
+                <input type="text" id="name" name="name" required=true>
             </div>
         </div>
         <div class="row">
@@ -76,7 +76,15 @@
                 <p>Descripción:</p>
             </div>
             <div class="col-lg-5">
-                <textarea name="descripcion" id="descripcion" cols="20" rows="3"></textarea>
+                <textarea name="description" id="description" cols="20" rows="3" required=true></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5">
+                <p class="text-primary" id="success" hidden=true>La categoría se guardo correctamente</p>
+                <p class="text-danger" id="error" hidden=true>Ocurrio un error</p>
             </div>
         </div>
         <div class="row">
@@ -84,8 +92,8 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-5">
 
-                    <button class="btn btn-success">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-warning">Cancelar</button>
+                    <button class="btn btn-success" onclick="save()">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-warning" onclick="clean()">Cancelar</button>
               
             </div>
         </div>
@@ -125,7 +133,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
+    <script src="js/crear_categorias.js"></script>
 </body>
 
 </html>

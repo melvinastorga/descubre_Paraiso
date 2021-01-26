@@ -1,0 +1,30 @@
+
+.aligncenter {
+    text-align: center;
+}
+
+.admin{
+    text-align: center;
+    
+    padding: 15px, 55px;
+}
+
+.container{
+    padding-bottom: 7rem;
+}
+
+.admin h3{
+    color: #86ac41;
+}
+
+input{
+    display: inline;
+}
+
+.buttons{
+    padding: 25px;
+}
+
+.red_color{
+    color: red;
+}

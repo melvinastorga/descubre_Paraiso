@@ -8,6 +8,7 @@
     <title>Sitios - Descubre Paraíso</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="js/sitios.js"></script>
 </head>
 
 <body>
@@ -26,11 +27,11 @@
                         &nbsp;&nbsp;<i class="bi bi-tools"></i> &nbsp;&nbsp;Gestionar&nbsp;&nbsp;
                     </a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="noticias.html">Noticias</a>
-                      <a class="dropdown-item" href="categorias.html">Categorías</a>
-                      <a class="dropdown-item" href="sitios.html">Sitios</a>
+                        <a class="dropdown-item" href="gestionarNoticias.html">Noticias</a>
+                        <a class="dropdown-item" href="listar_categorias.html">Categorías</a>
+                        <a class="dropdown-item" href="sitios.html">Sitios</a>
                     </div>
-                  </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         &nbsp;&nbsp;<i class="bi bi-question-square"></i> &nbsp;&nbsp;FAQ&nbsp;&nbsp;
@@ -42,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="index.html">
                         &nbsp;&nbsp;<i class="bi bi-box-arrow-right"></i>&nbsp;&nbsp;Cerrar Sesión</a>
                 </li>
             </ul>
@@ -56,7 +57,8 @@
         <div class="col-md-6">
             <h2>&emsp;&emsp;&emsp;&emsp;Sitios Disponibles</h2>
         </div>
-        <div class="col-md-6">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <div class="col-md-6">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <button type="button" class="btn btn-primary px-4" data-toggle="modal"
                 data-target="#modalAgregarSitio">Agregar</button>
         </div>
@@ -88,6 +90,30 @@
                     </tr>
                 </thead>
                 <tbody class="tbody">
+                    <tr>
+                        <td>Mirador de Orosi</td>
+                        <td>Orosi</td>
+                        <td>0 - 10 000 colones</td>
+                        <td>Mirador</td>
+                        <td><a href="#" onclick="abrirModalEditarSitio();">Editar</a> | <a href="#"
+                                onclick="abrirModalBorrarSitio();">Borrar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mirador de Ujarrás</td>
+                        <td>Ujrrás</td>
+                        <td>0 - 10 000 colones</td>
+                        <td>Mirador</td>
+                        <td><a href="#" onclick="abrirModalEditarSitio();">Editar</a> | <a href="#"
+                                onclick="abrirModalBorrarSitio();">Borrar</a></td>
+                    </tr>
+                    <tr>
+                        <td>Iglesia Colonial de Orosi</td>
+                        <td>Orosi</td>
+                        <td>0 - 10 000 colones</td>
+                        <td>Iglesia</td>
+                        <td><a href="#" onclick="abrirModalEditarSitio();">Editar</a> | <a href="#"
+                                onclick="abrirModalBorrarSitio();">Borrar</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -109,8 +135,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" name="agregarNombreSitio"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
+                                    <input type="text" class="form-control" id="agregarNombreSitio"
+                                        name="agregarNombreSitio" placeholder="Ingrese el nombre del sitio"
+                                        autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label>Ubicación</label>
@@ -141,12 +168,6 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Descripción</label>
-                                    <textarea type="text" class="form-control" name="agregarDescripcionSitio"
-                                        placeholder="Ingrese la descripción del sitio" autocomplete="off"
-                                        rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
                                     <label>Edad ideal para el sitio</label>
                                     <select class="form-control" name="agregarEdadSitio">
                                         <option value="1">0 - 12 años</option>
@@ -158,28 +179,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría</label>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="1" name="restaurante">
-                                        <label class="form-check-label">Restaurante</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="2"
-                                            name="reservaForestal">
-                                        <label class="form-check-label">Reserva Forestal</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="3" name="parqueNacional">
-                                        <label class="form-check-label">Parque Nacional</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="4" name="termales">
-                                        <label class="form-check-label">Termales</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="5" name="hotel">
-                                        <label class="form-check-label">Hotel</label>
-                                    </div>
-
+                                    <select class="form-control" name="agregarCategoriaSitio">
+                                        <option value="1">Restaurante</option>
+                                        <option value="2">Reserva Forestal</option>
+                                        <option value="3">Parque Nacional</option>
+                                        <option value="4">Termales</option>
+                                        <option value="5">Hotel</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea type="text" class="form-control" id="agregarDescripcionSitio"
+                                        name="agregarDescripcionSitio" placeholder="Ingrese la descripción del sitio"
+                                        autocomplete="off" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +200,7 @@
 
                 <div class="modal-footer">
                     <label hidden="hidden"></label>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button type="button" class="btn btn-primary" onclick="agregarSitio();">Agregar</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
@@ -211,7 +223,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" name="editarNombreSitio"
+                                    <input type="text" class="form-control" id="editarNombreSitio" name="editarNombreSitio"
                                         placeholder="Ingrese el nombre del sitio" autocomplete="off">
                                 </div>
                                 <div class="form-group">
@@ -243,12 +255,6 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Descripción</label>
-                                    <textarea type="text" class="form-control" name="editarDescripcionSitio"
-                                        placeholder="Ingrese la descripción del sitio" autocomplete="off"
-                                        rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
                                     <label>Edad ideal para el sitio</label>
                                     <select class="form-control" name="editarEdadSitio">
                                         <option value="1">0 - 12 años</option>
@@ -260,27 +266,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría</label>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="1" name="restaurante">
-                                        <label class="form-check-label">Restaurante</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="2"
-                                            name="reservaForestal">
-                                        <label class="form-check-label">Reserva Forestal</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="3" name="parqueNacional">
-                                        <label class="form-check-label">Parque Nacional</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="4" name="termales">
-                                        <label class="form-check-label">Termales</label>
-                                    </div>
-                                    <div class="form-check form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="5" name="hotel">
-                                        <label class="form-check-label">Hotel</label>
-                                    </div>
+                                    <select class="form-control" name="editarCategoriaSitio">
+                                        <option value="1">Restaurante</option>
+                                        <option value="2">Reserva Forestal</option>
+                                        <option value="3">Parque Nacional</option>
+                                        <option value="4">Termales</option>
+                                        <option value="5">Hotel</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea type="text" class="form-control" id="editarDescripcionSitio"
+                                        name="editarDescripcionSitio" placeholder="Ingrese la descripción del sitio"
+                                        autocomplete="off" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -289,7 +287,36 @@
 
                 <div class="modal-footer">
                     <label hidden="hidden"></label>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" onclick="editarSitio();">Guardar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal para borrar sitios -->
+     <div class="modal fade" id="modalBorrarSitio" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="img/logo.png" width="75" height="75">
+                    <h2 class="modal-title">Borrar Sitio</h2>
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                                <div class="form-group">
+                                    <h3>&emsp;¿Está seguro que desea borrar el sitio?</h3>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <label hidden="hidden"></label>
+                    <button type="button" class="btn btn-primary" onclick="borrarSitio();">Aceptar</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

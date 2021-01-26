@@ -20,12 +20,9 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-
-                    <a class="nav-link" href="#">
+                <li class="nav-item">
+                    <a class="nav-link" href="noticias.html">
                         &nbsp;&nbsp;<i class="bi bi-newspaper"></i>&nbsp;&nbsp;Noticias
-                        <span class="sr-only">(current)</span>
-
                     </a>
                 </li>
                 <li class="nav-item">
@@ -43,7 +40,7 @@
                         &nbsp;&nbsp;<i class="bi bi-person-plus"></i>&nbsp;&nbsp;Registrarse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="login.html">
                         &nbsp;&nbsp;<i class="bi bi-person-square"></i>&nbsp;&nbsp;Iniciar Sesión</a>
                 </li>
             </ul>
@@ -148,10 +145,10 @@
                                 <label for="inputFirstname">Precio</label>
                                 <div class="dropdown">
                                     <select class="form-control" aria-label="Default select example">
-                                        <option value="1">0 - 10 000</option>
-                                        <option value="2">10 000 - 20 000</option>
-                                        <option value="3">30 0000 - 40 000</option>
-                                        <option value="4">50 000 o más</option>
+                                        <option value="1">0 - 10 000 colones</option>
+                                        <option value="2">10 000 - 20 000 colones</option>
+                                        <option value="3">30 0000 - 40 000 colones</option>
+                                        <option value="4">50 000 colones o más</option>
                                     </select>
                                 </div>
                             </div>
@@ -169,10 +166,10 @@
                                 <div class="dropdown">
                                     <select class="form-control" aria-label="Default select example">
                                         <option value="1">0 - 12 años</option>
-                                        <option value="1">13 - 17 años</option>
-                                        <option value="2">18 - 25 años</option>
-                                        <option value="1">25 - 35 años</option>
-                                        <option value="1">Más de 35 años</option>
+                                        <option value="2">13 - 17 años</option>
+                                        <option value="3">18 - 25 años</option>
+                                        <option value="4">25 - 35 años</option>
+                                        <option value="5">Más de 35 años</option>
                                     </select>
                                 </div>
                             </div>
@@ -182,8 +179,8 @@
                                     <select class="form-control" aria-label="Default select example">
                                         <option value="1">Cachí</option>
                                         <option value="2">Orosi</option>
-                                        <option value="2">Paraiso</option>
-                                        <option value="2">Ujarrás</option>
+                                        <option value="3">Paraiso</option>
+                                        <option value="4">Ujarrás</option>
                                     </select>
                                 </div>
                             </div>
@@ -191,37 +188,19 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputCity">Categoría</label>
-                                <div class="form-check form-check-label">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                        value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Restaurante</label>
-                                </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                        value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Reserva Forestal</label>
-                                </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                        value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Parque Nacional</label>
-                                </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                        value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Termales</label>
-                                </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                        value="option3">
-                                    <label class="form-check-label" for="inlineCheckbox3">Hotel</label>
-                                </div>
+                                <select class="form-control" name="agregarCategoriaSitio">
+                                    <option value="1">Restaurante</option>
+                                    <option value="2">Reserva Forestal</option>
+                                    <option value="3">Parque Nacional</option>
+                                    <option value="4">Termales</option>
+                                    <option value="5">Hotel</option>
+                                </select>
                             </div>
 
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-primary px-4 float-right">Guardar</button>
+                                <button type="button" class="btn btn-primary px-4 float-right" onclick="window.location.href='rutas.html'">Aceptar</button>
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-primary px-4 float-right">Cancelar</button>

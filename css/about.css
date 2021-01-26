@@ -1,0 +1,26 @@
+
+.aligncenter {
+    text-align: center;
+}
+
+.about{
+    text-align: center;
+    
+    padding: 15px, 55px;
+}
+
+.container{
+    padding-bottom: 7rem;
+}
+
+.about h3{
+    color: #86ac41;
+}
+
+input{
+    display: inline;
+}
+
+.buttons{
+    padding: 25px;
+}

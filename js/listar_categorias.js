@@ -23,12 +23,21 @@ function loadData() {
     });
 }
 
+function _save(){
+
+    alert("Guardado");
+}
+
 function modify(id){
-    alert("modi" + id);
+    alert("Modificar" + id);
+}
+
+function update(){
+    alert("Actualizar");
 }
 
 function _delete(id){
-    alert("eli" + id);
+    alert("Eliminar");
 }
 
 function getRow(categoria) {
@@ -37,7 +46,8 @@ function getRow(categoria) {
             '<td>'+categoria.name+'</td>' +
             '<td>'+categoria.description+'</td>' +
             '<td>' +
-             '<button type="button" class="btn btn-info" onclick="modify('+categoria.id+')">Modificar</button>' +
+             '<button type="button" class="btn btn-info" data-toggle="modal"' +
+             'data-target="#modalEditarCategoria" onclick="modify('+categoria.id+')">Modificar</button>' +
              '<button type="button" class="btn btn-danger"  onclick="_delete('+categoria.id+')">Eliminar</button>' +
             '</td>' +
            '</tr>';

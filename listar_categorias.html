@@ -61,7 +61,8 @@
             </div>
             <div class="col-lg-2">
                 <div class="button-container">
-                    <button type="button" class="btn btn-success agregar">Agregar</button>
+                    <button type="button" class="btn btn-success agregar" data-toggle="modal"
+                    data-target="#modalAgregarCategoria">Agregar</button>
                 </div>
             </div>
         </div>
@@ -83,8 +84,9 @@
                             <td>Naturaleza</td>
                             <td>Poder convivir con flora y fauna al aire libre</td>
                             <td>
-                                <button type="button" class="btn btn-info">Modificar</button>
-                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#modalEditarCategoria" onclick="modify(1)">Modificar</button>
+                                <button type="button" class="btn btn-danger"  onclick="_delete(1)">Eliminar</button>
                             </td>
                           </tr>
                       
@@ -94,6 +96,82 @@
         </div>
     </div>
 
+
+    <!-- Modal para agregar categorias -->
+    <div class="modal fade" id="modalAgregarCategoria" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="img/logo.png" width="75" height="75">
+                    <h2 class="modal-title">Agregar Categoría</h2>
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" name="agregarNombreSitio"
+                                        placeholder="Ingrese el nombre de la categoría" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <label hidden="hidden"></label>
+                    <button type="button" class="btn btn-primary" onclick="_save()">Guardar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar categoria -->
+    <div class="modal fade" id="modalEditarCategoria" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="img/logo.png" width="75" height="75">
+                    <h2 class="modal-title">Editar Categoría</h2>
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" name="agregarNombreSitio"
+                                        placeholder="Ingrese el nombre de la categoría" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <label hidden="hidden"></label>
+                    <button type="button" class="btn btn-primary" onclick="update()">Guardar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="row">

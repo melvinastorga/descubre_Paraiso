@@ -33,11 +33,6 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        &nbsp;&nbsp;<i class="bi bi-question-square"></i> &nbsp;&nbsp;FAQ&nbsp;&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="about.html">
                         <i class="bi bi-info-square"></i>&nbsp;&nbsp;Acerca de&nbsp;&nbsp;
                     </a>
@@ -164,9 +159,21 @@
                                         <option value="2">Extranjero</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Latitud</label>
+                                    <input type="text" class="form-control" id="agregarLatitudSitio"
+                                        name="agregarLatitudSitio" placeholder="Ingrese la latitud del sitio"
+                                        autocomplete="off">
+                                </div>
                             </div>
 
                             <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Longitud</label>
+                                    <input type="text" class="form-control" id="agregarLongitudSitio"
+                                        name="agregarLongitudSitio" placeholder="Ingrese la longitud del sitio"
+                                        autocomplete="off">
+                                </div>
                                 <div class="form-group">
                                     <label>Edad ideal para el sitio</label>
                                     <select class="form-control" name="agregarEdadSitio">
@@ -186,6 +193,11 @@
                                         <option value="4">Termales</option>
                                         <option value="5">Hotel</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>URL imagen</label>
+                                    <input type="text" class="form-control" id="agregarUrlSitio" name="agregarUrlSitio"
+                                        placeholder="Ingrese la url de la imagen del sitio" autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label>Descripción</label>
@@ -223,8 +235,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" id="editarNombreSitio" name="editarNombreSitio"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
+                                    <input type="text" class="form-control" id="editarNombreSitio"
+                                        name="editarNombreSitio" placeholder="Ingrese el nombre del sitio"
+                                        autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label>Ubicación</label>
@@ -251,9 +264,21 @@
                                         <option value="2">Extranjero</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Latitud</label>
+                                    <input type="text" class="form-control" id="editarLatitudSitio"
+                                        name="editarLatitudSitio" placeholder="Ingrese la latitud del sitio"
+                                        autocomplete="off">
+                                </div>
                             </div>
 
                             <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Longitud</label>
+                                    <input type="text" class="form-control" id="editarLongitudSitio"
+                                        name="editarLongitudSitio" placeholder="Ingrese la longitud del sitio"
+                                        autocomplete="off">
+                                </div>
                                 <div class="form-group">
                                     <label>Edad ideal para el sitio</label>
                                     <select class="form-control" name="editarEdadSitio">
@@ -275,6 +300,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>URL imagen</label>
+                                    <input type="text" class="form-control" id="editarUrlSitio" name="editarUrlSitio"
+                                        placeholder="Ingrese la url de la imagen del sitio" autocomplete="off">
+                                </div>
+                                <div class="form-group">
                                     <label>Descripción</label>
                                     <textarea type="text" class="form-control" id="editarDescripcionSitio"
                                         name="editarDescripcionSitio" placeholder="Ingrese la descripción del sitio"
@@ -294,8 +324,8 @@
         </div>
     </div>
 
-     <!-- Modal para borrar sitios -->
-     <div class="modal fade" id="modalBorrarSitio" tabindex="-1" role="dialog">
+    <!-- Modal para borrar sitios -->
+    <div class="modal fade" id="modalBorrarSitio" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -307,10 +337,10 @@
                 <div class="modal-body">
                     <form>
                         <div class="row">
-                                <div class="form-group">
-                                    <h3>&emsp;¿Está seguro que desea borrar el sitio?</h3>
-                                </div>
+                            <div class="form-group">
+                                <h3>&emsp;¿Está seguro que desea borrar el sitio?</h3>
                             </div>
+                        </div>
                     </form>
                 </div>
 
@@ -328,7 +358,7 @@
             <div class="col-lg-4">
                 <br>
                 <p>Descubre Paraíso<br>
-                    &emsp;<a href="">Mapa del sitio</a><br>
+                    &emsp;<a href="mapa_sitio.html">Mapa del sitio</a><br>
                     &emsp;<a href="about.html">Acerca de</a><br>
                     &emsp;2021</p>
             </div>

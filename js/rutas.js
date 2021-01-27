@@ -105,6 +105,7 @@ function verMarcadorUno() {
     document.querySelector('#edadSitio').innerText = "Todas las edades";
     document.querySelector('#categoriaSitio').innerText = "Jardín";
     document.querySelector('#descripcionSitio').innerText = "Jardín botánico con una gran variedad de plantas de bambú, plantas autóctonas y epífitas.";
+    $("#imagenSitio").attr("src","http://jbl.ucr.ac.cr/sites/default/files/styles/crop_4-3/public/multimedia/aerial_jardin_lankester-202.jpg?itok=08w7D1sE");
 }
 
 function verMarcadorDos() {
@@ -116,4 +117,5 @@ function verMarcadorDos() {
     document.querySelector('#edadSitio').innerText = "Todas las edades";
     document.querySelector('#categoriaSitio').innerText = "Mirador";
     document.querySelector('#descripcionSitio').innerText = "Mirador con vistas al valle, senderos, un parque infantil, merendero y barbacoas..";
+    $("#imagenSitio").attr("src","https://images.visitarcostarica.com/mirador-de-orosi.jpg");
 }

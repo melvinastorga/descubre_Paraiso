@@ -168,7 +168,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-primary px-4 float-right" onclick="window.location.href='rutas.html'">Aceptar</button>
+                                <button type="button" class="btn btn-primary px-4 float-right" onclick="window.location.href='rutas.php'">Aceptar</button>
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-primary px-4 float-right">Cancelar</button>

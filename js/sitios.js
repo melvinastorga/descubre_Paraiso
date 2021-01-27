@@ -1,6 +1,9 @@
 function agregarSitio(){
     alert("Sitio agregado correctamente");
     $('#agregarNombreSitio').val("");
+    $('#agregarLatitudSitio').val("");
+    $('#agregarLongitudSitio').val("");
+    $('#agregarUrlSitio').val("");
     $('#agregarDescripcionSitio').val("");
     $("#modalAgregarSitio").modal('hide');
 }
@@ -12,6 +15,9 @@ function abrirModalEditarSitio() {
 function editarSitio() {
     alert("Sitio editado correctamente");
     $('#editarNombreSitio').val("");
+    $('#editarLatitudSitio').val("");
+    $('#editarLongitudSitio').val("");
+    $('#editarUrlSitio').val("");
     $('#editarDescripcionSitio').val("");
     $("#modalEditarSitio").modal('hide');
 }

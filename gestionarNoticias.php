@@ -12,45 +12,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.html"><i class="bi bi-house-door"></i>&nbsp;&nbsp;Home&nbsp;&nbsp;
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        &nbsp;&nbsp;<i class="bi bi-tools"></i> &nbsp;&nbsp;Gestionar&nbsp;&nbsp;
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="noticias.html">Noticias</a>
-                        <a class="dropdown-item" href="categorias.html">Categorías</a>
-                        <a class="dropdown-item" href="sitios.html">Sitios</a>
-                        <a class="dropdown-item" href="listar_administradores.html">Sitios</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        &nbsp;&nbsp;<i class="bi bi-question-square"></i> &nbsp;&nbsp;FAQ&nbsp;&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        <i class="bi bi-info-square"></i>&nbsp;&nbsp;Acerca de&nbsp;&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        &nbsp;&nbsp;<i class="bi bi-box-arrow-right"></i>&nbsp;&nbsp;Cerrar Sesión</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
+<?php
+    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
+    include("menu_administrador.html");
+    ?>
 
     <br>
 
@@ -205,28 +170,10 @@
         </div>
     </div>
 
-    <footer>
-        <div class="row">
-            <div class="col-lg-4">
-                <br>
-                <p>Descubre Paraíso<br>
-                    &emsp;<a href="">Mapa del sitio</a><br>
-                    &emsp;<a href="about.html">Acerca de</a><br>
-                    &emsp;2021</p>
-            </div>
-            <div class="col-lg-4">
-                <br>
-                <p>Realizado por:</p>
-                <p>&emsp;Melvin Astorga Guevara</p>
-                <p>&emsp;Josué Arguedas Duarte</p>
-                <p>&emsp;Nicole Fonseca Marín</p>
-                <p>&emsp;Melissa Ramirez Rojas</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="img/logo.png" width="250" height="250">
-            </div>
-        </div>
-    </footer>
+    <?php
+    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
+    include("footer.html");
+    ?>
 
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"

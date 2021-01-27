@@ -353,28 +353,10 @@
         </div>
     </div>
 
-    <footer>
-        <div class="row">
-            <div class="col-lg-4">
-                <br>
-                <p>Descubre Paraíso<br>
-                    &emsp;<a href="mapa_sitio.html">Mapa del sitio</a><br>
-                    &emsp;<a href="about.html">Acerca de</a><br>
-                    &emsp;2021</p>
-            </div>
-            <div class="col-lg-4">
-                <br>
-                <p>Realizado por:</p>
-                <p>&emsp;Melvin Astorga Guevara</p>
-                <p>&emsp;Josué Arguedas Duarte</p>
-                <p>&emsp;Nicole Fonseca Marín</p>
-                <p>&emsp;Melissa Ramirez Rojas</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="img/logo.png" width="250" height="250">
-            </div>
-        </div>
-    </footer>
+    <?php
+    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
+    include("footer.html");
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

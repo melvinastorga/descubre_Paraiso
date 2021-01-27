@@ -12,45 +12,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.html"><i class="bi bi-house-door"></i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-
-                    <a class="nav-link" href="noticias.html">
-                        &nbsp;&nbsp;<i class="bi bi-newspaper"></i>&nbsp;&nbsp;Noticias
-                        <span class="sr-only">(current)</span>
-
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        &nbsp;&nbsp;<i class="bi bi-question-square"></i> &nbsp;&nbsp;FAQ&nbsp;&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">
-                        <i class="bi bi-info-square"></i>&nbsp;&nbsp;Acerca de&nbsp;&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="buscar_categoria.html">
-                        &nbsp;&nbsp;<i class="bi bi-search"></i>&nbsp;&nbsp;Buscar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">
-                        &nbsp;&nbsp;<i class="bi bi-person-square"></i>&nbsp;&nbsp;Iniciar Sesión</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
+   
+<?php
+    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
+    include("menu.html");
+    ?>
 
     <h2 class="col-sm-6">Filtrar</h2>
     <main class="container">
@@ -147,28 +113,10 @@
 
 
 
-    <footer>
-        <div class="row">
-            <div class="col-lg-4">
-                <br>
-                <p>Descubre Paraíso<br>
-                    &emsp;<a href="">Mapa del sitio</a><br>
-                    &emsp;<a href="about.html">Acerca de</a><br>
-                    &emsp;2021</p>
-            </div>
-            <div class="col-lg-4">
-                <br>
-                <p>Realizado por:</p>
-                <p>&emsp;Melvin Astorga Guevara</p>
-                <p>&emsp;Josué Arguedas Duarte</p>
-                <p>&emsp;Nicole Fonseca Marín</p>
-                <p>&emsp;Melissa Ramirez Rojas</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="img/logo.png" width="250" height="250">
-            </div>
-        </div>
-    </footer>
+    <?php
+    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
+    include("footer.html");
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

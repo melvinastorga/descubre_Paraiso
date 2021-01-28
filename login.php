@@ -12,9 +12,8 @@
 </head>
 
 <body>
-<?php
-    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include("menu.html");
+    <?php
+        include("menu.html");
     ?>
 
     <p class="aligncenter">
@@ -27,12 +26,12 @@
             <div class="col-lg-4 login">
                 <h3>Iniciar Sesión</h3>
                 <div class="form">
-                    <p>Usuario:</p> <input name="user" type="text" autocomplete="off">
-                    <p>Contraseña:</p> <input name="password" type="password">
+                    <p>Usuario:</p> <input name="user" id="name" type="text" autocomplete="off">
+                    <p>Contraseña:</p> <input name="password" id="password" type="password">
                 </div>
                 <div class="buttons">
-                    <button class="btn btn-success">Iniciar Sesión</button>
-                    <button class="btn btn-warning">&nbsp;&nbsp;Cancelar&nbsp;&nbsp;</button>
+                    <button class="btn btn-success" onclick="login()">Iniciar Sesión</button>
+                    <button class="btn btn-warning" onclick="cancel()">&nbsp;&nbsp;Cancelar&nbsp;&nbsp;</button>
                 </div>
                 <a href="#">Registrarse</a>
             </div>
@@ -43,8 +42,7 @@
 
 
     <?php
-    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include("footer.html");
+        include("footer.html");
     ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -56,7 +54,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
+    <script src="js/login.js"></script>
 </body>
 
 </html>

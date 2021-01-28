@@ -25,11 +25,10 @@
                 <div class="col-lg-4">
                     <br>
                     <p>Mapa del Sitio<br>
-                        &emsp;<a href="">Acerca de</a><br>
-                        &emsp;<a href="index.html">Buscar Sitio</a><br>
-                        &emsp;<a href="login.html">Iniciar Sesión</a><br>
-                        &emsp;<a href="noticias.html">Noticias</a><br>
-                        &emsp;<a href="">Preguntas Frecuentes</a><br>
+                        &emsp;<a href="about.php">Acerca de</a><br>
+                        &emsp;<a href="index.php">Buscar Sitio</a><br>
+                        &emsp;<a href="login.php">Iniciar Sesión</a><br>
+                        &emsp;<a href="noticias.php">Noticias</a><br>
                 </div>
             </div>
         </div>

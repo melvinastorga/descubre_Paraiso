@@ -33,7 +33,6 @@
                     <button class="btn btn-success" onclick="login()">Iniciar Sesión</button>
                     <button class="btn btn-warning" onclick="cancel()">&nbsp;&nbsp;Cancelar&nbsp;&nbsp;</button>
                 </div>
-                <a href="#">Registrarse</a>
             </div>
             <div class="col-lg-4"></div>
         </div>

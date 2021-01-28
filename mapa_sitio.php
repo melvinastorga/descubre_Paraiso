@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Noticias - Descubre Paraíso</title>
+    <title>Mapa del Sitio - Descubre Paraíso</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
@@ -21,7 +21,9 @@
     <main class="container">
         <div class="container py-5">
             <div class="row">
-
+            <div class="col-lg-2">
+                <img src="img/logo.png" width="180" height="180" />
+            </div>
                 <div class="col-lg-4">
                     <br>
                     <p>Mapa del Sitio<br>

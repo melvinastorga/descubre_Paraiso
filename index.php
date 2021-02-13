@@ -12,9 +12,25 @@
 
 <body>
 <?php
-    //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include("menu.html");
-    ?>
+    
+include("menu.html");
+include("euclideanAlgorithm.php");
+
+    IF ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $priceSearch     = $_POST["priceSearch"];
+        $turistSearch    = $_POST["turistTypeSearch"];
+        $ageSearch    = $_POST["ageSearch"];
+        $placeSearch = $_POST["placeSearch"];
+        $categorySearch = $_POST["categorySearch"];
+        
+        
+        $ruth = getRuthPlace($priceSearch, $turistSearch, $ageSearch, $placeSearch, $categorySearch, $conn);
+    
+    }
+    
+    
+?>
 
     <div class="row">
         <h2 class="col-md-6">Descubre Paraíso</h2>
@@ -112,7 +128,7 @@
                             <div class="col-sm-6">
                                 <label for="inputFirstname">Precio</label>
                                 <div class="dropdown">
-                                    <select class="form-control" aria-label="Default select example">
+                                    <select name="priceSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">0 - 10 000 colones</option>
                                         <option value="2">10 000 - 20 000 colones</option>
                                         <option value="3">30 0000 - 40 000 colones</option>
@@ -123,7 +139,7 @@
                             <div class="col-sm-6">
                                 <label for="inputLastname">Tipo de Turista</label>
                                 <div class="dropdown">
-                                    <select class="form-control" aria-label="Default select example">
+                                    <select name="turistTypeSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">Nacional</option>
                                         <option value="2">Extranjero</option>
                                     </select>
@@ -132,7 +148,7 @@
                             <div class="col-sm-6">
                                 <label for="inputAddressLine1">Edad</label>
                                 <div class="dropdown">
-                                    <select class="form-control" aria-label="Default select example">
+                                    <select name="ageSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">0 - 12 años</option>
                                         <option value="2">13 - 17 años</option>
                                         <option value="3">18 - 25 años</option>
@@ -144,7 +160,7 @@
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Ubicación</label>
                                 <div class="dropdown">
-                                    <select class="form-control" aria-label="Default select example">
+                                    <select name="placeSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">Cachí</option>
                                         <option value="2">Orosi</option>
                                         <option value="3">Paraiso</option>
@@ -156,7 +172,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputCity">Categoría</label>
-                                <select class="form-control" name="agregarCategoriaSitio">
+                                <select name="categorySearch" class="form-control" name="agregarCategoriaSitio">
                                     <option value="1">Restaurante</option>
                                     <option value="2">Reserva Forestal</option>
                                     <option value="3">Parque Nacional</option>

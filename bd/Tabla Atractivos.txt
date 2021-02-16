@@ -1,0 +1,33 @@
+descripción falta* 
+
+Lugar
+Paraiso 1 
+Cachí   2
+Orosi   3
+
+
+Tipo de atractivo
+Restaurante 1
+Naturaleza  2
+Recreación  3
+
+
+Precio 
+0-25         1
+25-50        2
+50-adelante  3
+
+
+Edad 
+0-17     1
+18-40    2 
+40 o +   3
+
+
+Tipo Turista 
+Nacional   1
+Extranjero 2
+Ambos      3
+
+
+Coordenadas

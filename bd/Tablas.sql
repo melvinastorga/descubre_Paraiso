@@ -1,3 +1,5 @@
+-- use proyecto ;
+
 Create table TipoAtractivo (
 idTA int auto_increment primary key, 
 nombreTA varchar(40)
@@ -32,8 +34,8 @@ Create table Sitio(
 idS int auto_increment primary key, 
 nombreSitio varchar(60),
 descripcion varchar(500), 
-latitud decimal(15, 14), 
-latitud decimal(15, 14), 
+latitud decimal(20, 18), 
+longitud decimal(20, 18), 
 tipoA int,
 edad int,
 precio int, 

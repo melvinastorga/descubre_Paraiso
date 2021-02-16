@@ -7,7 +7,7 @@ values
 ("Recreacion");
 
 Insert into Edad(
-nombreEdad) 
+rangoEdad) 
 values
 ("Menor de 17 años"),
 ("entre 18 y 40 años"),
@@ -31,3 +31,9 @@ values
 ("Paraiso"), 
 ("Cachi"), 
 ("Orosi");
+
+Insert into Clasificacion (nombreClasificacion)
+values 
+("Bajo"), 
+("Intermedio"), 
+("Alto");

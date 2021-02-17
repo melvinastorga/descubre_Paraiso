@@ -129,10 +129,9 @@ include("euclideanAlgorithm.php");
                                 <label for="inputFirstname">Precio</label>
                                 <div class="dropdown">
                                     <select name="priceSearch" class="form-control" aria-label="Default select example">
-                                        <option value="1">0 - 10 000 colones</option>
-                                        <option value="2">10 000 - 20 000 colones</option>
-                                        <option value="3">30 0000 - 40 000 colones</option>
-                                        <option value="4">50 000 colones o más</option>
+                                        <option value="1">0 - 25 000 colones</option>
+                                        <option value="2">25 000 - 50 000 colones</option>
+                                        <option value="3">50 0000 colones o más</option>
                                     </select>
                                 </div>
                             </div>
@@ -142,6 +141,7 @@ include("euclideanAlgorithm.php");
                                     <select name="turistTypeSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">Nacional</option>
                                         <option value="2">Extranjero</option>
+                                        <option value="3">Ambos</option>
                                     </select>
                                 </div>
                             </div>
@@ -149,11 +149,9 @@ include("euclideanAlgorithm.php");
                                 <label for="inputAddressLine1">Edad</label>
                                 <div class="dropdown">
                                     <select name="ageSearch" class="form-control" aria-label="Default select example">
-                                        <option value="1">0 - 12 años</option>
-                                        <option value="2">13 - 17 años</option>
-                                        <option value="3">18 - 25 años</option>
-                                        <option value="4">25 - 35 años</option>
-                                        <option value="5">Más de 35 años</option>
+                                        <option value="1">0 - 17 años</option>
+                                        <option value="2">18 - 40 años</option>
+                                        <option value="3">Más de 40 años</option>
                                     </select>
                                 </div>
                             </div>
@@ -161,10 +159,9 @@ include("euclideanAlgorithm.php");
                                 <label for="inputAddressLine2">Ubicación</label>
                                 <div class="dropdown">
                                     <select name="placeSearch" class="form-control" aria-label="Default select example">
-                                        <option value="1">Cachí</option>
-                                        <option value="2">Orosi</option>
-                                        <option value="3">Paraiso</option>
-                                        <option value="4">Ujarrás</option>
+                                        <option value="1">Paraíso</option>
+                                        <option value="2">Cachí</option>
+                                        <option value="3">Orosi</option>
                                     </select>
                                 </div>
                             </div>
@@ -174,10 +171,8 @@ include("euclideanAlgorithm.php");
                                 <label for="inputCity">Categoría</label>
                                 <select name="categorySearch" class="form-control" name="agregarCategoriaSitio">
                                     <option value="1">Restaurante</option>
-                                    <option value="2">Reserva Forestal</option>
-                                    <option value="3">Parque Nacional</option>
-                                    <option value="4">Termales</option>
-                                    <option value="5">Hotel</option>
+                                    <option value="2">Naturaleza</option>
+                                    <option value="3">Recreación</option>
                                 </select>
                             </div>
 

@@ -7,6 +7,14 @@ $username = "root";
 $password = "admin";
 $dbName = "proyecto";
 
+
+/*
+$host = "localhost";
+$username = "id16025515_root";
+$password = "H?bFjE2}7m%|J)CQ";
+$dbName = "id16025515_proyecto";
+*/
+
 global $conn;
 
 $conn = mysqli_connect($host, $username, $password, $dbName);
@@ -63,7 +71,7 @@ function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $c
         
     }
     
-    echo $clasification . "</br>";
+    //echo $clasification . "</br>";
     
    $idSites = getSitesRandom($clasification, $conn);
    
@@ -125,6 +133,7 @@ function extractData ($selectedSites, $conn){
     //echo  $selectedSites[0] . "</br>";
     //echo  $selectedSites[1] . "</br>";
     //echo  $selectedSites[2] . "</br>";
+    $sitioJson = array();
     
     for ($i = 0; $i < 3 ; $i++) {
         
@@ -141,7 +150,6 @@ function extractData ($selectedSites, $conn){
         
         
         
-        $sitioJson = array();
         
         $sitioJson[$i] = array('precio'=>$result['@precioOut'],
             'tipoTurista'=>$result['@tipoTuristaOut'],

@@ -44,7 +44,6 @@ $video = $_GET['video'];
           
         <?php
         echo "<h2> Título: $title </h2>";
-        echo "<input type='text'  value='$video prueba'>";
         echo "<h3> Categoría: $category </h3>";
         echo "<h3> Publicado: $date </h3>";
         echo "<br>";
@@ -54,12 +53,7 @@ $video = $_GET['video'];
         echo "<p>$contain</p>";
         echo "<br>";
         echo "<br>";
-        $result = str_replace('"',"'",$video);
-        echo $video;
-        echo "<script>";
-        echo "console.log('$result A'); ";
-        echo "</script>";
-        echo "<input type='text'  value='$result prueba'>";
+        echo "<iframe width='560' height='315' src='$video' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
         ?>
 
 

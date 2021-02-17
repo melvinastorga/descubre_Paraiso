@@ -23,7 +23,8 @@
 
     <div class="container" align="center">
     <h2>Siga las instrucciones de este vídeo para poder insertar vídeos en las noticias</h2>
-    <h3>Se necesita copiar la etiqueta (iframe) que se genera</h3>
+    <h3>Se necesita copiar la url de la etiqueta (iframe) que se genera</h3>
+    <h3>Ejemplo: https://www.youtube.com/embed/iwaUan_AA2A</h3>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iwaUan_AA2A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
         <br><br>
@@ -73,11 +74,11 @@
                 <td><?php echo $row["new_date"];?></td>
                 
                 
-                <td><a href="news_detail.php?title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php $result?>" class="btn btn-success">DETALLES</a> </td>
+                <td><a href="news_detail.php?title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php echo $row["video"];?>" class="btn btn-success">DETALLES</a> </td>
 
                 <td><a href="edit_news.php?new_id=<?php echo $row['new_id']; ?>&title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php echo $row['video']; ?>" class="btn btn-info">EDITAR</a></td>
 
-                <td><a href="delete_customer.php?customer_id=<?php echo $row['customer_id'];?>" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')">ELIMINAR</a></td>
+                <td><a href="delete_news.php?new_id=<?php echo $row['new_id'];?>" class="btn btn-danger" onClick="return confirm('¿Seguro que quiere eliminar esta noticia?')">ELIMINAR</a></td>
             </tr>
             <?php } ?>
             
@@ -147,48 +148,7 @@
         </div>
     </div>
 
-    <!-- Modal para editar sitios -->
-    <div class="modal fade" id="modalEditarNoticia" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img src="img/logo.png" width="75" height="75">
-                    <h2 class="modal-title">Editar Noticia</h2>
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Titulo</label>
-                                    <input type="text" class="form-control" name="editarTitulo"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label>Fecha de Publicación</label>
-                                    <input type="text" class="form-control" name="editarFechaPublicacion"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label>Contenido</label>
-                                    <textarea class="form-control rounded-0" id="editarContenido" rows="3">
-                                    </textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <label hidden="hidden"></label>
-                    <button type="button" class="btn btn-primary" onclick="editarNoticia();">Guardar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
     <div class="modal fade" id="modalBorrarNoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

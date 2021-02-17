@@ -41,7 +41,7 @@ $video = $_GET['video'];
         <div align="center" class="container">
 		<h3 align="center" class="text-primary"><b>Editar Noticia<b></h3>
 		
-    <form action="update_news2.php" method="POST">
+    <form action="edit_news2.php" method="POST">
 
     <?php         
        echo " <div class='form-group'> ";
@@ -71,7 +71,8 @@ $video = $_GET['video'];
        echo "     </div> ";
        echo "     <div class='form-group'> ";
        echo "     <label for='new_contain'>Contenido:</label> ";
-       echo "         <input required type='text' placeholder='Digite el contenido' class='form-control' name='new_contain' autocomplete='off' value='$contain'> ";
+       echo " <textarea required class='form-control' name='new_contain' placeholder='Escriba el contenido de la noticia' rows='3' autocomplete='off'>$contain</textarea>";
+       
        echo "     </div> ";
        echo "     <div class='form-group'> ";
        echo "     <label for='new_video'>Escriba el IFRAME del vídeo:</label> ";

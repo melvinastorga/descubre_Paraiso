@@ -1,3 +1,20 @@
+$(document).ready(function () {
+    loadSitios();
+});
+
+function loadSitios() {
+    $(document).ready(function () {
+        $.ajax({
+            url: "euclideanAlgorithm.php",
+            type: "post",
+            dataType: "json",
+            contenttype: "application/json; charset=utf-8",
+        }).done(function(response){
+            console.log(response);
+        });
+    });
+}
+
 const LATITUD_CENTRO = 9.8394597, LONGITUD_CENTRO = -83.8923902, ZOOM = 13;
 
 const mapa = new ol.Map({
@@ -18,7 +35,7 @@ const mapa = new ol.Map({
 let marcador1 = new ol.Feature({
     geometry: new ol.geom.Point(
         // Ubicación del marcador (Longitud, latitud) 
-        ol.proj.fromLonLat([-83.8923902, 9.8394597])
+        ol.proj.fromLonLat([-83.888583, 9.8444444])
     ),
 });
 
@@ -26,6 +43,13 @@ let marcador2 = new ol.Feature({
     geometry: new ol.geom.Point(
         // Ubicación del marcador (Longitud, latitud)
         ol.proj.fromLonLat([-83.8604253, 9.8186752])
+    ),
+});
+
+let marcador3 = new ol.Feature({
+    geometry: new ol.geom.Point(
+        // Ubicación del marcador (Longitud, latitud)
+        ol.proj.fromLonLat([-83.8504253, 9.8086752])
     ),
 });
 
@@ -42,11 +66,17 @@ marcador2.setStyle(new ol.style.Style({
     })
 }));
 
+marcador3.setStyle(new ol.style.Style({
+    image: new ol.style.Icon({
+        src: "img/pin.png",
+    })
+}));
+
 // Arreglo para marcadores
 const marcadores = [];
 
 // Agregar los marcadores al arreglo
-marcadores.push(marcador1, marcador2);
+marcadores.push(marcador1, marcador2, marcador3);
 
 // A la capa le ponemos los marcadores
 let capa = new ol.layer.Vector({
@@ -59,20 +89,21 @@ let capa = new ol.layer.Vector({
 mapa.addLayer(capa);
 
 //Línea entre marcadores
-var sitioUno = ol.proj.fromLonLat([-83.8923902, 9.8394597]);
+var sitioUno = ol.proj.fromLonLat([-83.888583, 9.8444444]);
 var sitioDos = ol.proj.fromLonLat([-83.8604253, 9.8186752]);
+var sitioTres = ol.proj.fromLonLat([-83.8504253, 9.8086752]);
 
 var estiloLinea = [
     new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: '#d12710',
-        width: 2
-      })
+        stroke: new ol.style.Stroke({
+            color: '#d12710',
+            width: 2
+        })
     })
-  ];
-              
-var linea = new ol.layer.Vector({
-        source: new ol.source.Vector({
+];
+
+var lineaUno = new ol.layer.Vector({
+    source: new ol.source.Vector({
         features: [new ol.Feature({
             geometry: new ol.geom.LineString([sitioUno, sitioDos]),
             name: 'Line',
@@ -80,8 +111,20 @@ var linea = new ol.layer.Vector({
     })
 });
 
-linea.setStyle(estiloLinea);
-mapa.addLayer(linea);
+var lineaDos = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        features: [new ol.Feature({
+            geometry: new ol.geom.LineString([sitioDos, sitioTres]),
+            name: 'Line',
+        })]
+    })
+});
+
+lineaUno.setStyle(estiloLinea);
+lineaDos.setStyle(estiloLinea);
+
+mapa.addLayer(lineaUno);
+mapa.addLayer(lineaDos)
 
 //Detectar a cual marcador se le dio click
 mapa.on('click', function (evt) {
@@ -90,32 +133,22 @@ mapa.on('click', function (evt) {
             return feature;
         });
     if (feature === marcador1) {
-        verMarcadorUno();
+        verMarcador();
     } else if (feature === marcador2) {
         verMarcadorDos();
-    } 
+    } else if (feature === marcador3) {
+        verMarcadorDos();
+    }
 });
 
-function verMarcadorUno() {
+function verMarcador() {
     $("#modalSitio").modal('show');
-    document.querySelector('#nombreSitio').innerText = "Jardín Botánico Lankester";
-    document.querySelector('#ubicacionSitio').innerText = "Paraíso";
-    document.querySelector('#precioSitio').innerText = "0 - 10 000 colones";
-    document.querySelector('#tipoTuristaSitio').innerText = "Nacional";
-    document.querySelector('#edadSitio').innerText = "Todas las edades";
-    document.querySelector('#categoriaSitio').innerText = "Jardín";
-    document.querySelector('#descripcionSitio').innerText = "Jardín botánico con una gran variedad de plantas de bambú, plantas autóctonas y epífitas.";
-    $("#imagenSitio").attr("src","http://jbl.ucr.ac.cr/sites/default/files/styles/crop_4-3/public/multimedia/aerial_jardin_lankester-202.jpg?itok=08w7D1sE");
-}
-
-function verMarcadorDos() {
-    $("#modalSitio").modal('show');
-    document.querySelector('#nombreSitio').innerText = "Mirador de Orosi";
-    document.querySelector('#ubicacionSitio').innerText = "Orosi";
-    document.querySelector('#precioSitio').innerText = "0 - 10 000 colones";
-    document.querySelector('#tipoTuristaSitio').innerText = "Nacional";
-    document.querySelector('#edadSitio').innerText = "Todas las edades";
-    document.querySelector('#categoriaSitio').innerText = "Mirador";
-    document.querySelector('#descripcionSitio').innerText = "Mirador con vistas al valle, senderos, un parque infantil, merendero y barbacoas..";
-    $("#imagenSitio").attr("src","https://images.visitarcostarica.com/mirador-de-orosi.jpg");
+    document.querySelector('#nombreSitio').innerText = "";
+    document.querySelector('#ubicacionSitio').innerText = "";
+    document.querySelector('#precioSitio').innerText = "";
+    document.querySelector('#tipoTuristaSitio').innerText = "";
+    document.querySelector('#edadSitio').innerText = "";
+    document.querySelector('#categoriaSitio').innerText = "";
+    document.querySelector('#descripcionSitio').innerText = "";
+    $("#imagenSitio").attr("src", "http://www.lacasonadelcafetal.com/uploads/restaurante15.jpg");
 }

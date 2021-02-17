@@ -4,7 +4,7 @@
 
 $host = "localhost";
 $username = "root";
-$password = "admin";
+$password = "";
 $dbName = "proyecto";
 
 
@@ -50,9 +50,8 @@ function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $c
         $fourthDif[$i] = $placeSearch - $result['@ubicacionOut'];
         $fifthDif[$i] = $categorySearch - $result['@tipoAtractivoOut'];
         
-        
-        // obtiene la distancia más pequeña
-        $eucliDistance[$i] = sqrt(pow($firstDif, 2) + pow($secondDif, 2) + pow($thirdDif, 2) + pow($fourthDif, 2) + pow($fifthDif, 2));
+        // obtiene la distancia mï¿½s pequeï¿½a
+        $eucliDistance[$i] = sqrt(pow($firstDif[$i], 2) + pow($secondDif[$i], 2) + pow($thirdDif[$i], 2) + pow($fourthDif[$i], 2) + pow($fifthDif[$i], 2));
         
         
         // obtiene la menor distancia
@@ -75,68 +74,52 @@ function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $c
     
    $idSites = getSitesRandom($clasification, $conn);
    
-  // echo $idSites[0] . "</br>";
-  // echo $idSites[1] . "</br>";
-  // echo $idSites[2] . "</br>";
-   
+   //echo $idSites[0] . "</br>";
+   //echo $idSites[1] . "</br>";
+   //echo $idSites[2] . "</br>";
    
    extractData($idSites, $conn);
-    
 }
 
-
-
-// obtiene cinco sitios de la clase con la menor distancia
-
+// obtiene tres sitios de la clase con la menor distancia
 function getSitesRandom ($clasification, $conn){
     
-    // extrae cinco sitios que formaran la ruta recomendada
+    // extrae tres sitios que formaran la ruta recomendada
     $sqlSite = "Select idS from Sitio where clasificacion = ". $clasification . " ORDER BY RAND() LIMIT 3";
-    
     
     // extrae los datos de la base de datos
     $result = $conn->query($sqlSite);
-    
     
     $counter = 0;
     $selectedSite[$counter] = 0;
     
     if ($result->num_rows > 0) {
-        
         // recorre los datos obtenidos de la base
         while ($row = $result->fetch_assoc()) {
-            
             // obtiene los resultados de la seleccion
             $selectedSite[$counter] = $row["idS"];
             $counter = $counter + 1;
-           
         }
     } else {
         echo "0 results";
     }
-    
     return $selectedSite; 
 }
 
 
- // extrae los datos de los cinco sitios seleccionados de manera aleatoria
- 
-function extractData ($selectedSites, $conn){
-    
+ // extrae los datos de los tres sitios seleccionados de manera aleatoria
+function extractData ($selectedSites, $conn) {
     $sql = "CALL PExtractInfo(?, @nombreSitioOut, @descripcionOut, @latitudOut, @longitudOut, 
                                  @precioOut, @tipoTuristaOut, @edadOut, @ubicacionOut, @tipoAtractivoOut,
                                  @clasificacionOut)";
 
- 
-    
-    // en este ciclo se obtienen los cinco sitios seleccionados aleatoriamente
     //echo  $selectedSites[0] . "</br>";
     //echo  $selectedSites[1] . "</br>";
     //echo  $selectedSites[2] . "</br>";
+
+    // en este ciclo se obtienen los tres sitios seleccionados aleatoriamente
     $sitioJson = array();
-    
     for ($i = 0; $i < 3 ; $i++) {
-        
         $call = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($call, 'i',  $selectedSites[$i]);
         mysqli_stmt_execute($call);
@@ -147,10 +130,6 @@ function extractData ($selectedSites, $conn){
                                               @clasificacionOut');
         
         $result = mysqli_fetch_assoc($select);
-        
-        
-        
-        
         $sitioJson[$i] = array('precio'=>$result['@precioOut'],
             'tipoTurista'=>$result['@tipoTuristaOut'],
             'edad'=>$result['@edadOut'], 
@@ -162,17 +141,10 @@ function extractData ($selectedSites, $conn){
             'nombre'=>$result['@nombreSitioOut'], 
             'descripcion'=>$result['@descripcionOut']
         );
-         
     }
-    
-    
-    echo "Json Sitio: ", json_encode($sitioJson);
-    
-    
-    
+    echo json_encode($sitioJson);
 }
-
-                
+         
 class Sitio {
     public $nombre = "";
     public $descripcion = "";
@@ -187,8 +159,7 @@ class Sitio {
 }
 
 /*
- * $sitio = new Sitio;
-        
+ * $sitio = new Sitio; 
         $sitio -> precio = $result['@precioOut'];
         $sitio -> tipoTurista = $result['@tipoTuristaOut'];
         $sitio -> edad =  $result['@edadOut'];
@@ -199,10 +170,6 @@ class Sitio {
         $sitio -> longitud = $result['@longitudOut'];
         $sitio -> nombre = $result['@nombreSitioOut'];
         $sitio -> descripcion = $result['@descripcionOut'];
-        
-        
         $sitios[$i] = $sitio;
  */
-
-
 ?>

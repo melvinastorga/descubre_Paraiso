@@ -15,7 +15,7 @@
 <?php
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
     include("menu_administrador.html");
-    ?>
+?>
 
     
     <div class="container">
@@ -26,12 +26,12 @@
             <div class="col-lg-7">
                 <h3>Categorias</h3>
             </div>
-            <div class="col-lg-2">
+            <!--<div class="col-lg-2">
                 <div class="button-container">
                     <button type="button" class="btn btn-success agregar" data-toggle="modal"
                     data-target="#modalAgregarCategoria">Agregar</button>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="row">
             <div class="col-lg-2"></div>
@@ -42,29 +42,22 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col">Gestionar</th>
                       </tr>
                     </thead>
                     <tbody class="tbody">
                         <tr>
                             <th scope="row">1</th>
                             <td>Naturaleza</td>
-                            <td>Poder convivir con flora y fauna al aire libre</td>
-                            <td>
-                                <button type="button" class="btn btn-info" data-toggle="modal"
-                                data-target="#modalEditarCategoria" onclick="modify(1)">Modificar</button>
-                                <button type="button" class="btn btn-danger"  onclick="_delete(1)">Eliminar</button>
-                            </td>
-                          </tr>
-                      
+                            <td>Poder convivir con flora y fauna al aire libre</td>   
+                        </tr>
                     </tbody>
                   </table>
             </div>
         </div>
     </div>
 
-
-    <!-- Modal para agregar categorias -->
+    <!-- 
+     Modal para agregar categorias 
     <div class="modal fade" id="modalAgregarCategoria" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -102,7 +95,7 @@
         </div>
     </div>
 
-    <!-- Modal para editar categoria -->
+     Modal para editar categoria 
     <div class="modal fade" id="modalEditarCategoria" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -139,6 +132,7 @@
             </div>
         </div>
     </div>
+    -->
 
     <?php
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";

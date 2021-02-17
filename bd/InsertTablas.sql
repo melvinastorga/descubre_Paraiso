@@ -1,4 +1,3 @@
-
 Insert into TipoAtractivo(
 nombreTA)
 values

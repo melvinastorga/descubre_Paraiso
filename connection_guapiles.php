@@ -9,6 +9,4 @@ $connection = mysqli_connect($host,$user,$password,$dbname) or die("No se pudo c
 
 mysqli_set_charset($connection,"utf8");
 
-
-
 ?>

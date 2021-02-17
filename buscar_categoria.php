@@ -26,10 +26,10 @@
                 <div class="form-group row">
                     <label for="inputCity">Categoría</label>
                     <select class="form-control" name="agregarCategoriaSitio" onchange="loadData()">
-                        <option value="Todos">Todos</option>
-                        <option value="Restaurante">Restaurante</option>
-                        <option value="Naturaleza">Naturaleza</option>
-                        <option value="Recreación">Recreación</option>
+                        <option value="0">Todos</option>
+                        <option value="1">Restaurante</option>
+                        <option value="2">Naturaleza</option>
+                        <option value="3">Recreación</option>
                     </select>
                 </div>
 
@@ -79,9 +79,7 @@
                                     <label id="precioSitio">50 000 colones o más</label>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tipo de turistas:</label>
-                                    <label id="tipoTuristaSitio">Nacional</label>
-                                    <label id="tipoTuristaSitio">Extranjero</label>
+                                    <label id="tipoTuristaSitio" >Tipo de turistas:</label>
                                 </div>
                             </div>
 

@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 function loadData() {
     let category = {
-        'type' : $('.form-control').val()
+        'type' : parseInt($('.form-control').val())
     };
     $.ajax({
         url: "api/get_categorias.php",
@@ -14,10 +14,10 @@ function loadData() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            let categories = JSON.parse(result);
+            let categories = result;
             let html = '';
             $.each(categories, function (key, item) {
-                html += getRow(item[key]);
+               html += getRow(item);
             });
             $('.tbody').html(html);
         },
@@ -38,7 +38,7 @@ function loadModal(id){
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            fillModal(JSON.parse(result));
+            fillModal(result);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
@@ -47,7 +47,15 @@ function loadModal(id){
 }
 
 function fillModal(category){
-    alert(category);
+    
+    $('#nombreSitio').text(category['name']); 
+    $('ubicacionSitio').text(category['location']); 
+    $('precioSitio').text(category['price']); 
+    $('categoriaSitio').text(category['type']); 
+    $('edadSitio').text(category['age']); 
+    $('descripcionSitio').text(category['description']); 
+    
+    
 }
 
 function getRow(category) {

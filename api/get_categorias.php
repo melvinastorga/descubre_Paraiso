@@ -1,13 +1,13 @@
 <?php
-    include('../connection_guapiles.php');
+    include('../connection_local.php');
 
     $requestMethod = $_SERVER["REQUEST_METHOD"];
     
     if($requestMethod == "GET"){
         $type = $_GET["type"];
-        $query = "SELECT idS, nombreSitio, descripcion, nombreTA FROM Sitio s JOIN TipoAtractivo t ON s.idS = t.idTA";
-        if($type != "Todos")
-            $query += " WHERE t.nombreTA = '".$type."';";
+        $query = "SELECT idS, nombreSitio, descripcion, nombreTA FROM Sitio s JOIN TipoAtractivo t ON s.tipoA = t.idTA";
+        if($type != 0)
+            $query .= " WHERE t.idTA = ".$type;
 
         $result = mysqli_query($connection, $query);
         if(!$result)

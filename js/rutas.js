@@ -1,16 +1,16 @@
-var results;
-$(document).ready(function () {
-    results = {
-        "priceSearch": document.getElementById('priceSearch').value,
-        "turistSearch": document.getElementById('turistTypeSearch').value,
-        "ageSearch": document.getElementById('ageSearch').value,
-        "placeSearch": document.getElementById('placeSearch').value,
-        "categorySearch": document.getElementById('categorySearch').value
-    };
-});
+
 
 function loadSitios() {
-    window.location="rutas.php";
+	let  results;
+	results = {
+	        "priceSearch": document.getElementById('priceSearch').value,
+	        "turistSearch": document.getElementById('turistTypeSearch').value,
+	        "ageSearch": document.getElementById('ageSearch').value,
+	        "placeSearch": document.getElementById('placeSearch').value,
+	        "categorySearch": document.getElementById('categorySearch').value
+	    };
+	
+    //window.location="rutas.php";
     // nombre de la clase del div 
     var html = '<p>Probabilidades</p>';
     $(document).ready(function () {

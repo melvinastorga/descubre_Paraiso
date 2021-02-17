@@ -41,7 +41,6 @@ function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $c
         $thirdDif[$i] = $ageSearch - $result['@edadOut'];
         $fourthDif[$i] = $placeSearch - $result['@ubicacionOut'];
         $fifthDif[$i] = $categorySearch - $result['@tipoAtractivoOut'];
-        $sixthDif[$i] = $result['@clasificacionOut'];
         
         
         // obtiene la distancia más pequeña

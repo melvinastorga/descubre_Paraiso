@@ -19,7 +19,7 @@ include("euclideanAlgorithm.php");
 
 IF ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    getRuthPlace (1, 1, 1, 1, 1, $conn); 
+    getRuthPlace (1, 2, 3, 1, 2, $conn); 
     
 }
 

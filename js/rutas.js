@@ -1,21 +1,40 @@
+var results;
 $(document).ready(function () {
-    loadSitios();
+    results = {
+        "priceSearch": document.getElementById('priceSearch').value,
+        "turistSearch": document.getElementById('turistTypeSearch').value,
+        "ageSearch": document.getElementById('ageSearch').value,
+        "placeSearch": document.getElementById('placeSearch').value,
+        "categorySearch": document.getElementById('categorySearch').value
+    };
 });
 
 function loadSitios() {
+    window.location="rutas.php";
+    // nombre de la clase del div 
+    var html = '<p>Probabilidades</p>';
     $(document).ready(function () {
         $.ajax({
             url: "euclideanAlgorithm.php",
-            type: "post",
-            dataType: "json",
-            contenttype: "application/json; charset=utf-8",
-        }).done(function(response){
-            console.log(response);
+            data: results,
+            type: "POST",
+            success: function (result) {
+                var res = JSON.parse(result);
+                for (var i = 0; i < res.length; i++) {
+                    console.log(result);
+                    //html += '<p>'+ result +'</p>';
+                }
+
+            }
         });
+        $("#demoResultado").html(html);
     });
 }
 
-const LATITUD_CENTRO = 9.8394597, LONGITUD_CENTRO = -83.8923902, ZOOM = 13;
+function loadMapa() {
+
+}
+/*const LATITUD_CENTRO = 9.8394597, LONGITUD_CENTRO = -83.8923902, ZOOM = 13;
 
 const mapa = new ol.Map({
     //El id del elemento en el html
@@ -34,7 +53,7 @@ const mapa = new ol.Map({
 //Marcadores
 let marcador1 = new ol.Feature({
     geometry: new ol.geom.Point(
-        // Ubicación del marcador (Longitud, latitud) 
+        // Ubicación del marcador (Longitud, latitud)
         ol.proj.fromLonLat([-83.888583, 9.8444444])
     ),
 });
@@ -151,4 +170,4 @@ function verMarcador() {
     document.querySelector('#categoriaSitio').innerText = "";
     document.querySelector('#descripcionSitio').innerText = "";
     $("#imagenSitio").attr("src", "http://www.lacasonadelcafetal.com/uploads/restaurante15.jpg");
-}
+}*/

@@ -34,7 +34,7 @@ function mostrarResultados(resultados){
     let html = '<p>Probabilidades</p>';
     for (i = 0; i < resultados.length; i++) {
         html += '<p>'+ resultados[i]['precio'] +'</p>';
-        
+        html += '<p>'+ resultados[i]['nombre'] +'</p>';
     }
     resultadosDiv.html(html);
 }

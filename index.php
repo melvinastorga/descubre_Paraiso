@@ -120,9 +120,9 @@ include("euclideanAlgorithm.php");
                     <div class="col-md-10 mx-auto">
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputFirstname">Precio</label>
+                                <label>Precio</label>
                                 <div class="dropdown">
-                                    <select name="priceSearch" class="form-control" aria-label="Default select example">
+                                    <select id="priceSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">0 - 25 000 colones</option>
                                         <option value="2">25 000 - 50 000 colones</option>
                                         <option value="3">50 0000 colones o más</option>
@@ -130,9 +130,9 @@ include("euclideanAlgorithm.php");
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputLastname">Tipo de Turista</label>
+                                <label>Tipo de Turista</label>
                                 <div class="dropdown">
-                                    <select name="turistTypeSearch" class="form-control" aria-label="Default select example">
+                                    <select id="turistTypeSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">Nacional</option>
                                         <option value="2">Extranjero</option>
                                         <option value="3">Ambos</option>
@@ -140,9 +140,9 @@ include("euclideanAlgorithm.php");
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputAddressLine1">Edad</label>
+                                <label>Edad</label>
                                 <div class="dropdown">
-                                    <select name="ageSearch" class="form-control" aria-label="Default select example">
+                                    <select id="ageSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">0 - 17 años</option>
                                         <option value="2">18 - 40 años</option>
                                         <option value="3">Más de 40 años</option>
@@ -150,9 +150,9 @@ include("euclideanAlgorithm.php");
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputAddressLine2">Ubicación</label>
+                                <label>Ubicación</label>
                                 <div class="dropdown">
-                                    <select name="placeSearch" class="form-control" aria-label="Default select example">
+                                    <select id="placeSearch" class="form-control" aria-label="Default select example">
                                         <option value="1">Paraíso</option>
                                         <option value="2">Cachí</option>
                                         <option value="3">Orosi</option>
@@ -162,8 +162,8 @@ include("euclideanAlgorithm.php");
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputCity">Categoría</label>
-                                <select name="categorySearch" class="form-control" name="agregarCategoriaSitio">
+                                <label>Categoría</label>
+                                <select id="categorySearch" class="form-control" name="agregarCategoriaSitio">
                                     <option value="1">Restaurante</option>
                                     <option value="2">Naturaleza</option>
                                     <option value="3">Recreación</option>
@@ -173,7 +173,7 @@ include("euclideanAlgorithm.php");
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary px-4 float-right">Aceptar</button>
+                                <button type="button" onclick="loadSitios();" class="btn btn-primary px-4 float-right">Aceptar</button>
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-primary px-4 float-right">Cancelar</button>
@@ -190,16 +190,17 @@ include("euclideanAlgorithm.php");
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
     include("footer.html");
     ?>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="js/rutas.js"></script>
 
 </body>
 

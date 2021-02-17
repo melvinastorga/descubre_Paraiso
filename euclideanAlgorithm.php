@@ -4,7 +4,7 @@
 
 $host = "localhost";
 $username = "root";
-$password = "admin";
+$password = "";
 $dbName = "proyecto";
 
 
@@ -56,9 +56,8 @@ IF ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fourthDif[$i] = $placeSearch - $result['@ubicacionOut'];
         $fifthDif[$i] = $categorySearch - $result['@tipoAtractivoOut'];
         
-        
-        // obtiene la distancia más pequeña
-        $eucliDistance[$i] = sqrt(pow($firstDif, 2) + pow($secondDif, 2) + pow($thirdDif, 2) + pow($fourthDif, 2) + pow($fifthDif, 2));
+        // obtiene la distancia mï¿½s pequeï¿½a
+        $eucliDistance[$i] = sqrt(pow($firstDif[$i], 2) + pow($secondDif[$i], 2) + pow($thirdDif[$i], 2) + pow($fourthDif[$i], 2) + pow($fifthDif[$i], 2));
         
         
         // obtiene la menor distancia
@@ -88,7 +87,7 @@ IF ($_SERVER["REQUEST_METHOD"] == "POST") {
 // obtiene sitios de la clase con la menor distancia
 function getSitesRandom ($clasification, $conn){
     
-    // extrae cinco sitios que formaran la ruta recomendada
+    // extrae tres sitios que formaran la ruta recomendada
     $sqlSite = "Select idS from Sitio where clasificacion = ". $clasification . " ORDER BY RAND() LIMIT 3";
     
     
@@ -116,7 +115,6 @@ function getSitesRandom ($clasification, $conn){
     return $selectedSite;
 }
 
-
 // extrae los datos de los sitios seleccionados de manera aleatoria
 function extractData ($selectedSites, $conn){
     
@@ -142,9 +140,6 @@ function extractData ($selectedSites, $conn){
         
         $result = mysqli_fetch_assoc($select);
         
-        
-        
-        
         $sitioJson[$i] = array('precio'=>$result['@precioOut'],
             'tipoTurista'=>$result['@tipoTuristaOut'],
             'edad'=>$result['@edadOut'],
@@ -157,18 +152,8 @@ function extractData ($selectedSites, $conn){
             'descripcion'=>$result['@descripcionOut'],
             'url'=>$result['@urlOut']
         );
-        
     }
-    
-    
     //se recibe en testRutas.js
-    
     echo json_encode($sitioJson);
-    
-    
-    
 }
-
-
-
 ?>

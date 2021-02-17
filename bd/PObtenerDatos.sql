@@ -22,6 +22,8 @@ Select clasificacion into clasificacionOut from Sitio where idS = idIn;
 
 end //
 
+Select precio from Sitio where idS = 1;
+
 --  in precioIn int,
 -- 	in tipoTuristaIn int,
 --  in edadIn int,

@@ -14,13 +14,12 @@
 
 <body>
 <?php
-// $IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-include ("menu_administrador.html");
+// $IPATH = $_SERVER["DOCUMENT_ROOT"]."/"
 include("euclideanAlgorithm.php");
 
 IF ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    getRuthPlace (1, 1, 1, 1, 1, $conn); 
+    getRuthPlace (1, 2, 3, 1, 2, $conn); 
     
 }
 
@@ -30,7 +29,6 @@ IF ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<div class="row">
 		<div class="col-md-6">
-			<h2>&emsp;&emsp;&emsp;&emsp;Sitios Disponibles</h2>
 		</div>
 		<form action="" method="post">
 			<div class="col-md-6">
@@ -42,14 +40,6 @@ IF ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<br>
 
-    
-
-    
-
-    <?php
-    // $IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include ("footer.html");
-    ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

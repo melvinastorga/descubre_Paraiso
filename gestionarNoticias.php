@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="js/noticias.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
 
 <body>
@@ -19,6 +21,13 @@
 
     <br>
 
+    <div class="container" align="center">
+    <h2>Siga las instrucciones de este vídeo para poder insertar vídeos en las noticias</h2>
+    <h3>Se necesita copiar la url de la etiqueta (iframe) que se genera</h3>
+    <h3>Ejemplo: https://www.youtube.com/embed/iwaUan_AA2A</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iwaUan_AA2A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+        <br><br>
     <div class="row">
         <div class="col-md-6">
             <img src="img/logo.png" width="75" height="75">
@@ -27,40 +36,58 @@
         <div class="col-md-6">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <button type="button" class="btn btn-primary px-4" data-toggle="modal"
-                data-target="#modalAgregarNoticia">Agregar</button>
+                data-target="#modalAgregarNoticia">Agregar Noticia</button>
         </div>
     </div>
 
     <br>
 
     <!-- Tabla con sitios disponibles -->
-    <div class="container">
-        <div class="table-responsive-sm">
-            <table class="table table-bordered table-hover" name="tablaNoticia">
-                <thead>
-                    <tr>
-                        <th>
-                            Titulo
-                        </th>
-                        <th>
-                            Fecha
-                        </th>
-                        <th>
-                            Opción
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="tbody">
-                    </tr>
-                    <td>La Casona de Cachí: 20 años de historia</td>
-                    <td>20/09/2020</td>
-                    <td><a href="#" onclick="abrirModalEditarNoticia();">Editar</a> | <a href="#"
-                            onclick="abrirModalBorrarNoticia();">Borrar</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    
+		<div class="container" >
+             <table id="example" class="display" style="width:100%" align="center" margin-right=50>
+        <thead>
+            <tr>
+                <th class="text-primary">ID</th>
+                <th class="text-primary">Título</th>
+                <th class="text-primary">Categoría</th>
+                <th class="text-primary">Fecha Publicación</th>
+                <th class="text-primary">Detalles</th>
+                <th class="text-primary">Editar</th>
+                <th class="text-primary">Eliminar</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        	<?php
+        	      include("connection_guapiles.php");
+                  $query ="SELECT * FROM news";
+                  $sql = mysqli_query($connection,$query);
+                  while($row = mysqli_fetch_array($sql))
+                  {
+
+        	?>
+            <tr>
+                <td><?php echo $row["new_id"];?></td>
+                <td><?php echo $row["title"];?></td>
+                <td><?php echo $row["category"];?></td>
+                <td><?php echo $row["new_date"];?></td>
+                
+                
+                <td><a href="news_detail.php?title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php echo $row["video"];?>" class="btn btn-success">DETALLES</a> </td>
+
+                <td><a href="edit_news.php?new_id=<?php echo $row['new_id']; ?>&title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php echo $row['video']; ?>" class="btn btn-info">EDITAR</a></td>
+
+                <td><a href="delete_news.php?new_id=<?php echo $row['new_id'];?>" class="btn btn-danger" onClick="return confirm('¿Seguro que quiere eliminar esta noticia?')">ELIMINAR</a></td>
+            </tr>
+            <?php } ?>
+            
+        </tbody>
+        
+    </table>
+
+		</div>
+	
 
     <!-- Modal para agregar noticias -->
     <div class="modal fade" id="modalAgregarNoticia" tabindex="-1" role="dialog">
@@ -73,80 +100,55 @@
                 </div>
 
                 <div class="modal-body">
-                    <form>
+                    <form action="insert_new.php" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Titulo</label>
-                                    <input type="text" class="form-control" name="agregarTitulo"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
+                                    <label for="new_title">Titulo</label>
+                                    <input type="text" class="form-control" name="new_title"
+                                        placeholder="Ingrese el título de la noticia" autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Fecha de Publicación</label>
-                                    <input type="text" class="form-control" name="agregarFechaPublicacion"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
+                                    <label for="new_category">Categoría</label>
+                                     <select class="form-control" name="new_category">
+                                       <option>HISTORIA</option>
+                                       <option>CULTURA</option>
+                                       <option>AVENTURA</option>
+                                       <option>NATURALEZA</option>
+                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Contenido</label>
-                                    <textarea class="form-control rounded-0" id="agregarContenido" rows="3">
-                                    </textarea>
+                                <label for="new_contain">Contenido</label>
+                                    <textarea required class="form-control" name="new_contain" placeholder="Escriba el contenido de la noticia" rows="3" autocomplete="off"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new_image">URL de la imagen (click derecho y copiar ruta)</label>
+                                    <input required type="text" class="form-control" name="new_image"
+                                        placeholder="Ingrese la url de la imagen de la noticia" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new_video"> del vídeo</label>
+                                    <input required type="text" class="form-control" name="new_video"
+                                        placeholder="Ingrese el IFRAME del vídeo de la noticia" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                             <input type="submit" class="btn btn-success" value="Registrar Noticia">
+                                </div>
                                 </div>
                             </div>
-                        </div>
+                        
                     </form>
                 </div>
 
                 <div class="modal-footer">
                     <label hidden="hidden"></label>
-                    <button type="button" class="btn btn-primary" onclick="agregarNoticia();">Agregar</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para editar sitios -->
-    <div class="modal fade" id="modalEditarNoticia" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <img src="img/logo.png" width="75" height="75">
-                    <h2 class="modal-title">Editar Noticia</h2>
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                </div>
-
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Titulo</label>
-                                    <input type="text" class="form-control" name="editarTitulo"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label>Fecha de Publicación</label>
-                                    <input type="text" class="form-control" name="editarFechaPublicacion"
-                                        placeholder="Ingrese el nombre del sitio" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <label>Contenido</label>
-                                    <textarea class="form-control rounded-0" id="editarContenido" rows="3">
-                                    </textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <label hidden="hidden"></label>
-                    <button type="button" class="btn btn-primary" onclick="editarNoticia();">Guardar</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
     <div class="modal fade" id="modalBorrarNoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -188,6 +190,13 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript">
+	$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
 
 </body>
 

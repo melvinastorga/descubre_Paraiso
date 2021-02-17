@@ -1,3 +1,13 @@
+<?php
+
+$title = $_GET['title'];
+$date = $_GET['date'];
+$category = $_GET['category'];
+$image = $_GET['image'];
+$contain = $_GET['contain'];
+$video = $_GET['video'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,62 +31,41 @@
 
     <br>
 
+    <div class="container" align="center">
+    
+    </div>
         <br><br>
     <div class="row">
         <div class="col-md-6">
-            <img src="img/logo.png" width="75" height="75">
-            <h2>&emsp;&emsp;&emsp;&emsp;Noticias</h2>
+            <img src="img/logo.png" width="100" height="100">
+            <h2>&emsp;&emsp;&emsp;&emsp;Detalles de la Noticia</h2>
         </div>
-        
+        <div class="container" align="center">
+          
+        <?php
+        echo "<h2> Título: $title </h2>";
+        echo "<h3> Categoría: $category </h3>";
+        echo "<h3> Publicado: $date </h3>";
+        echo "<br>";
+        echo "<img src='$image' alt=''>";
+        echo "<br>";
+        echo "<br>";
+        echo "<p>$contain</p>";
+        echo "<br>";
+        echo "<br>";
+        echo "<iframe width='560' height='315' src='$video' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+        ?>
+
+
+        </div>
     </div>
 
     <br>
 
-    <!-- Tabla con sitios disponibles -->
     
-		<div class="container" >
-             <table id="example" class="display" style="width:100%" align="center" margin-right=50>
-        <thead>
-            <tr>
-                <th class="text-primary">ID</th>
-                <th class="text-primary">Título</th>
-                <th class="text-primary">Categoría</th>
-                <th class="text-primary">Fecha Publicación</th>
-                <th class="text-primary">Detalles</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-        	<?php
-        	      include("connection_guapiles.php");
-                  $query ="SELECT * FROM news";
-                  $sql = mysqli_query($connection,$query);
-                  while($row = mysqli_fetch_array($sql))
-                  {
-
-        	?>
-            <tr>
-                <td><?php echo $row["new_id"];?></td>
-                <td><?php echo $row["title"];?></td>
-                <td><?php echo $row["category"];?></td>
-                <td><?php echo $row["new_date"];?></td>
-                
-                
-                <td><a href="news_detail2.php?title=<?php echo $row['title']; ?>&date=<?php echo $row['new_date']; ?>&category=<?php echo $row['category']; ?>&image=<?php echo $row['image']; ?>&contain=<?php echo $row['contain']; ?>&video=<?php echo $row["video"];?>" class="btn btn-success">DETALLES</a> </td>
-
-            </tr>
-            <?php } ?>
-            
-        </tbody>
-        
-    </table>
-
-		</div>
 	
 
-  
     <?php
-
     include("footer.html");
     ?>
 

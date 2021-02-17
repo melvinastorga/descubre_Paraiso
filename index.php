@@ -11,25 +11,19 @@
 </head>
 
 <body>
-<?php
-    
+<?php    
 include("menu.html");
 include("euclideanAlgorithm.php");
 
     IF ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
         $priceSearch     = $_POST["priceSearch"];
         $turistSearch    = $_POST["turistTypeSearch"];
         $ageSearch    = $_POST["ageSearch"];
         $placeSearch = $_POST["placeSearch"];
         $categorySearch = $_POST["categorySearch"];
-        
-        
-        $ruth = getRuthPlace($priceSearch, $turistSearch, $ageSearch, $placeSearch, $categorySearch, $conn);
-    
+        $ruth = getRuthPlace($priceSearch, $turistSearch, $ageSearch, $placeSearch, $categorySearch, $conn); 
+         
     }
-    
-    
 ?>
 
     <div class="row">
@@ -122,7 +116,7 @@ include("euclideanAlgorithm.php");
     <main class="container">
         <div class="container py-5">
             <div class="row">
-                <form>
+                <form method="post" action="rutas.php">
                     <div class="col-md-10 mx-auto">
                         <div class="form-group row">
                             <div class="col-sm-6">
@@ -179,7 +173,7 @@ include("euclideanAlgorithm.php");
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-primary px-4 float-right" onclick="window.location.href='rutas.php'">Aceptar</button>
+                                <button type="submit" class="btn btn-primary px-4 float-right">Aceptar</button>
                             </div>
                             <div class="col-sm-6">
                                 <button type="button" class="btn btn-primary px-4 float-right">Cancelar</button>

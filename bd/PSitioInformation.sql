@@ -11,7 +11,8 @@ create procedure PExtractInfo(
                            out edadOut varchar(40), 
                            out ubicacionOut varchar(40), 
                            out tipoAtractivoOut varchar(40), 
-                           out clasificacionOut varchar(40)
+                           out clasificacionOut varchar(40), 
+						   out urlOut varchar(500)
                            )
 
 begin
@@ -21,6 +22,7 @@ Select nombreSitio into nombreSitioOut from Sitio where idS = idIn;
 Select descripcion into descripcionOut from Sitio where idS = idIn;
 Select latitud into latitudOut from Sitio where idS = idIn ;
 Select longitud into longitudOut from Sitio where idS = idIn;
+Select url into urlOut from Sitio where idS = idIn;
 
 
 Select nombrePrecio into precioOut from Sitio, Precio  where idS = idIn and precio = idP;
@@ -33,6 +35,8 @@ Select nombreClasificacion into clasificacionOut from Sitio, Clasificacion where
 
 end //
 
+use proyecto
+alter table sitio add column url varchar(500)
 
 CALL PExtractInfo(16, @a,@b,@c,@d,@e,@f,@g,@h,@i,@j);
 

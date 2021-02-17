@@ -5,7 +5,7 @@
 $host = "localhost";
 $username = "root";
 $password = "admin";
-$dbName = "b76223_tarea";
+$dbName = "proyecto";
 
 global $conn;
 
@@ -17,10 +17,9 @@ if (mysqli_connect_errno()) {
 
 
 // obtiene las probabilidades para obtener las rutas 
-
 function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $categorySearch, $conn){
     
-    $sql = "CALL obtenerRutEuclides(?, ?, ?, ?, ?, ?, @idIn)";
+    $sql = "CALL obtenerRutEuclides(?, @precioOut, @tipoTuristaOut, @edadOut, @ubicacionOut, @tipoAtractivoOut, @clasificacionOut')";
     $eucliDistance[0] = 0;
     // cuenta los registros
     $idIn = 0; 
@@ -49,33 +48,107 @@ function getRuthPlace ($priceSearch, $turistSearch, $ageSearch, $placeSearch, $c
         $eucliDistance[$i] = sqrt(pow($firstDif, 2) + pow($secondDif, 2) + pow($thirdDif, 2) + pow($fourthDif, 2) + pow($fifthDif, 2));
         
         
+        // obtiene la menor distancia
         if ($counter == 0) {
             $distance = $eucliDistance;
-            $style = $result['@clasificacionOut'];
+            $clasification = $result['@clasificacionOut'];
             $counter = 1;
         }
         
         if ($distance > $eucliDistance) {
             $distance = $eucliDistance;
-            $style = $result['@clasificacionOut'];
+            $clasification = $result['@clasificacionOut'];
         }
-        
-       
         
     }
     
     
     
+   $idSites = getSitesRandom($clasification);
+   
+   echo $idSites[0] . "</br>";
+   echo $idSites[1] . "</br>";
+   echo $idSites[2] . "</br>";
+   echo $idSites[3] . "</br>";
+   echo $idSites[4] . "</br>";
+   
+   
+   //extractData($idSites);
+    
 }
 
 
 
-function getSitesRandom ($sites){
+// obtiene cinco sitios de la clase con la menor distancia
+function getSitesRandom ($clasification){
     
+    // extrae cinco sitios que formaran la ruta recomendada
+    $sqlSite = "Select idS from Sitio where clasificacion = ". $clasification + " ORDER BY RAND() LIMIT 5";
+    
+    
+    // extrae los datos de la base de datos
+    $result = $conn->query($sqlSite);
+    
+    
+    $counter = 0;
+    $selectedSite[$counter] = 0;
+    
+    if ($result->num_rows > 0) {
+        
+        // recorre los datos obtenidos de la base
+        while ($row = $result->fetch_assoc()) {
+            
+            // obtiene los resultados de la seleccion
+            $selectedSite[$counter] = $row["idS"];
+        }
+    } else {
+        echo "0 results";
+    }
+    
+    return $selectedSite; 
+}
+
+/*
+ * extrae los datos de los cinco sitios seleccionados de manera aleatoria
+ * 
+function extractData ($selectedSites){
+    
+    $sql = "CALL PExtractInfo(?, @nombreSitioOut, @descripcionOut, @latitudOut, @longitudOut, 
+                                 @precioOut, @tipoTuristaOut, @edadOut, @ubicacionOut, @tipoAtractivoOut,
+                                 @clasificacionOut')";
+
+ 
+    
+    // en este ciclo se obtienen los cinco sitios seleccionados aleatoriamente
+    
+    for ($i = 0; $i < 5 ; $i++) {
+        
+        $call = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($call, 'i',  $selectedSites[$i]);
+        mysqli_stmt_execute($call);
+        
+        //extrae los datos
+        $select = mysqli_query($conn, 'SELECT @nombreSitioOut, @descripcionOut, @latitudOut, @longitudOut, 
+                                              @precioOut, @tipoTuristaOut, @edadOut, @ubicacionOut, @tipoAtractivoOut,
+                                              @clasificacionOut');
+        
+        $result = mysqli_fetch_assoc($select);
+        
+        
+       
+        $firstDif[$i] =  $result['@precioOut'];
+        $secondDif[$i] = $result['@tipoTuristaOut'];
+        $thirdDif[$i] =  $result['@edadOut'];
+        $fourthDif[$i] = $result['@ubicacionOut'];
+        $fifthDif[$i] =  $result['@tipoAtractivoOut'];
+        $sixthDif[$i] =  $result['@clasificacionOut'];
+        
+        
+    }
     
 }
 
-
+*/
 
 function getLocation($distances){
     

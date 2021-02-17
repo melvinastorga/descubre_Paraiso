@@ -1,4 +1,4 @@
-
+select * from sitio
 
 Insert into Sitio 
 (

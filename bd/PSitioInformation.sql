@@ -38,7 +38,7 @@ end //
 use proyecto
 alter table sitio add column url varchar(500)
 
-CALL PExtractInfo(16, @a,@b,@c,@d,@e,@f,@g,@h,@i,@j);
+CALL PExtractInfo(16, @a,@b,@c,@d,@e,@f,@g,@h,@i,@j,@k);
 
 Select nombrePrecio  from Sitio, Precio  where idS = 16 and precio = idP;
 

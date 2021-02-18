@@ -1,18 +1,25 @@
 <?php
 
 
-    function isAdmin($username, $password){
+
+    function isAdmin($username, $password, $conn){
+        
+        /*
+        $host = "localhost";
+        $username = "root";
+        $password = "admin";
+        $dbName = "proyecto";
         
         $host = "localhost";
         $useN = "id16025515_root";
         $passW = "H?bFjE2}7m%|J)CQ";
         $dbName = "id16025515_proyecto";
         
-        
         $connection = mysqli_connect($host,$useN,$passW,$dbName) or die("No se pudo conectar a la BD: ".mysqli_connect_error());
+        */
         
         $query = "SELECT username FROM Administrador where username = '".$username."' and _password = '".$password."'";
-        $result = mysqli_query($connection, $query);
+        $result = mysqli_query($conn, $query);
        
         
         

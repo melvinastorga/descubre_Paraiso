@@ -11,7 +11,7 @@
                                                                           JOIN Precio p ON s.precio = p.idP
                                                                           JOIN Ubicacion u ON s.ubicacion = u.idU".
                  " WHERE s.idS = " .$id;
-        $result = mysqli_query($connection, $query);
+        $result = mysqli_query($conn, $query);
         if(!$result)
             die('Error');
         
@@ -24,7 +24,7 @@
             'age'=>$row["rangoEdad"],
             'location'=>$row["nombreUbicacion"],
         );
-        $connection->close();
+        $conn->close();
         echo json_encode($response);
     }
 ?>

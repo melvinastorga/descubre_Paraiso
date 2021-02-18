@@ -1,27 +1,8 @@
 <?php
 
 //datos de acceso para la base de datos
+include('connection_local.php');
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbName = "proyecto";
-
-
-/*
- $host = "localhost";
- $username = "id16025515_root";
- $password = "H?bFjE2}7m%|J)CQ";
- $dbName = "id16025515_proyecto";
- */
-
-global $conn;
-
-$conn = mysqli_connect($host, $username, $password, $dbName);
-
-if (mysqli_connect_errno()) {
-    echo "Connection couldn't be established" . mysqli_connect_errno();
-}
 
 // obtiene las probabilidades para obtener las rutas
 IF ($_SERVER["REQUEST_METHOD"] == "POST") {

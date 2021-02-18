@@ -9,7 +9,7 @@
         if($type != 0)
             $query .= " WHERE t.idTA = ".$type;
 
-        $result = mysqli_query($connection, $query);
+        $result = mysqli_query($conn, $query);
         if(!$result)
             die('Error');
         
@@ -23,7 +23,7 @@
                 'description'=> $row['descripcion']
             ); 
         } 
-        $connection->close();
+        $conn->close();
         echo json_encode($response);
     }
 ?>

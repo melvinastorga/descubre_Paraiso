@@ -28,6 +28,11 @@ $video = $_GET['video'];
 <?php
     
     include("menu_administrador.html");
+    
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+    }
     ?>
 
     <br>

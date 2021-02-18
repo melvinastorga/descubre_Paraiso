@@ -6,9 +6,7 @@
         
         echo isAdmin($_POST["name"],$_POST["password"]);
         
-        
-        //die("Error!");
-        
+       
 
     }
 ?>

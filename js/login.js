@@ -6,14 +6,24 @@ $(document).ready(function () {
 });
 
 function login(){
-    let name = nameInput.value;
-    let password = passwordInput.value;
-    if(name == "Expertos2021" && password == "redes")
-        location.href = "gestionarNoticias.php"
-    else{
-        cancel();
-        alert("Los datos están incorectos!!!!!!!!!");
-    }
+    let user ={
+        "name" : nameInput.value,
+        "password" : passwordInput.value
+    };
+    $.ajax({
+        url: "api/login.php",
+        data: user,
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            location.href = "gestionarNoticias.php"
+        },
+        error: function (errorMessage) {
+            cancel();
+            alert("Los datos están incorectos!");
+        }
+    });
 }
 
 function cancel(){

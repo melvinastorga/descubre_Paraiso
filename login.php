@@ -13,6 +13,9 @@
 
 <body>
     <?php
+        if(isset($_SESSION['username'])){
+            header("Location: gestionarNoticias.php");
+        }
         include("menu.html");
     ?>
 

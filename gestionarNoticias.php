@@ -15,9 +15,12 @@
 
 <body>
 <?php
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+    }
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
     include("menu_administrador.html");
-    ?>
+?>
 
     <br>
 

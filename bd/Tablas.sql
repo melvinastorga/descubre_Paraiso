@@ -51,5 +51,13 @@ foreign key (ubicacion) references Ubicacion(idU),
 foreign key (clasificacion) references Clasificacion(idC)
 );
 
+Create table Administrador(
+idA int auto_increment primary key, 
+username varchar(40) unique,
+password varchar(40)
+);
+
+Insert into Administrador(username, password) values ('descubre@paraiso.com','paraiso1234');
+
 
 

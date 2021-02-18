@@ -15,10 +15,9 @@
 
 <body>
 <?php
+    session_start();
     if(!isset($_SESSION['username'])){
-        
-        echo $_SESSION['username'];
-        //header("Location: login.php");
+        header("Location: login.php");
     }
    
 
@@ -38,6 +37,7 @@
     <div class="row">
         <div class="col-md-6">
             <img src="img/logo.png" width="75" height="75">
+            <h2>&emsp;&emsp;&emsp;&emsp; <?php $_SESSION['username']?></h2>
             <h2>&emsp;&emsp;&emsp;&emsp;Noticias Disponibles</h2>
         </div>
         <div class="col-md-6">

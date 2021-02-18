@@ -18,18 +18,13 @@
         $query = "SELECT username FROM Administrador where username = '".$username."' and _password = '".$password."'";
         $result = mysqli_query($connection, $query);
        
-        //echo $row = $result->fetch_assoc()
         
-        if(true){
+        
+        if($result->fetch_assoc()){
             session_start();
-            $_SESSION['username'] = "c";
+            $_SESSION['username'] = $username;
             return true;
         }
         return false;
-    }
-
-    function logout(){
-        session_unset();
-        session_destroy();
     }
 ?>

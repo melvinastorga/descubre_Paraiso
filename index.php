@@ -15,8 +15,6 @@
 <?php
 include ("menu.html");
 include ("euclideanAlgorithm.php");
-
-
 ?>
 
     <div class="row">
@@ -104,85 +102,6 @@ include ("euclideanAlgorithm.php");
 
 	<br>
 	<br>
-
-	<h2 class="col-sm-6">Filtrar</h2>
-	<main class="container">
-	<div class="container py-5">
-		<div class="row">
-			<form method="post" action="rutas.php">
-				<div class="col-md-10 mx-auto">
-					<div class="form-group row">
-						<div class="col-sm-6">
-							<label>Precio</label>
-							<div class="dropdown">
-								<select id="priceSearch" class="form-control"
-									aria-label="Default select example">
-									<option value="1">0 - 25 000 colones</option>
-									<option value="2">25 000 - 50 000 colones</option>
-									<option value="3">50 0000 colones o más</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<label>Tipo de Turista</label>
-							<div class="dropdown">
-								<select id="turistTypeSearch" class="form-control"
-									aria-label="Default select example">
-									<option value="1">Nacional</option>
-									<option value="2">Extranjero</option>
-									<option value="3">Ambos</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<label>Edad</label>
-							<div class="dropdown">
-								<select id="ageSearch" class="form-control"
-									aria-label="Default select example">
-									<option value="1">0 - 17 años</option>
-									<option value="2">18 - 40 años</option>
-									<option value="3">Más de 40 años</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<label>Ubicación</label>
-							<div class="dropdown">
-								<select id="placeSearch" class="form-control"
-									aria-label="Default select example">
-									<option value="1">Paraíso</option>
-									<option value="2">Cachí</option>
-									<option value="3">Orosi</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-6">
-							<label>Categoría</label> <select id="categorySearch"
-								class="form-control" name="agregarCategoriaSitio">
-								<option value="1">Restaurante</option>
-								<option value="2">Naturaleza</option>
-								<option value="3">Recreación</option>
-							</select>
-						</div>
-
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-6">
-							<button type="button" onclick="loadSitios();"
-								class="btn btn-primary px-4 float-right">Aceptar</button>
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-primary px-4 float-right">Cancelar</button>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-	</div>
-	</main>
 
     <?php
     // $IPATH = $_SERVER["DOCUMENT_ROOT"]."/";

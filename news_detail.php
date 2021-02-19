@@ -26,12 +26,9 @@ $video = $_GET['video'];
 <body>
 <?php
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include("menu_administrador.html");
+    include("menu.html");
+   
     
-    session_start();
-    if(!isset($_SESSION['username'])){
-        header("Location: login.php");
-    }
     
     ?>
 

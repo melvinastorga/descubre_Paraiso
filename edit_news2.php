@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
+
 $new_id = $_POST['new_id'];
 $title = $_POST['new_title'];
 $date = $_POST['new_date'];

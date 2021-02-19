@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
+
 
 $new_id = $_GET['new_id']; 
 $title = $_GET['title'];
@@ -29,10 +34,7 @@ $video = $_GET['video'];
     
     include("menu_administrador.html");
     
-    session_start();
-    if(!isset($_SESSION['username'])){
-        header("Location: login.php");
-    }
+   
     ?>
 
     <br>

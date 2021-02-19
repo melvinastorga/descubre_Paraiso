@@ -16,7 +16,7 @@
 <body>
 <?php
     //$IPATH = $_SERVER["DOCUMENT_ROOT"]."/";
-    include("menu_administrador.html");
+    include("menu.html");
     ?>
 
     <br>

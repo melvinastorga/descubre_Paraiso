@@ -28,7 +28,7 @@
                     <br>
                     <p>Mapa del Sitio<br>
                         &emsp;<a href="about.php">Acerca de</a><br>
-                        &emsp;<a href="index.php">Buscar Ruta</a><br>
+                        &emsp;<a href="rutas.php">Buscar Ruta</a><br>
                         &emsp;<a href="buscar_categoria.php">Buscar Sitio</a><br>
                         &emsp;<a href="login.php">Iniciar Sesión</a><br>
                         &emsp;<a href="noticias.php">Noticias</a><br>

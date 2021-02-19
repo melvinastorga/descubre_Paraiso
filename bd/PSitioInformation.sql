@@ -35,11 +35,3 @@ Select nombreClasificacion into clasificacionOut from Sitio, Clasificacion where
 
 end //
 
-use proyecto
-alter table sitio add column url varchar(500)
-
-CALL PExtractInfo(16, @a,@b,@c,@d,@e,@f,@g,@h,@i,@j,@k);
-
-Select nombrePrecio  from Sitio, Precio  where idS = 16 and precio = idP;
-
-Select idS from Sitio where clasificacion = 2 ORDER BY RAND() LIMIT 5;
